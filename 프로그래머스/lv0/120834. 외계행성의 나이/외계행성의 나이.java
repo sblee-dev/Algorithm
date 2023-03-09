@@ -1,12 +1,10 @@
 class Solution {
     public String solution(int age) {
-        String[] age962 = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j"};
-        String answer = "";
-        
-        while(age > 0) {
-            answer = age962[age%10] + answer;
+        StringBuilder sb = new StringBuilder();
+        while(age>0) {
+            sb.insert(0, (char) (age%10 + 'a'));
             age /= 10;
         }
-        return answer;
+        return sb.toString();
     }
 }
