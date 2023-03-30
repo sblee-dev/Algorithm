@@ -7,5 +7,5 @@ class Solution {
             sb.append(cipher.charAt(i*code-1));
         }
         return sb.toString();
-    }
+    } 
 }
