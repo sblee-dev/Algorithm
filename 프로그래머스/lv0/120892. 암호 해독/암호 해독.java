@@ -1,11 +1,9 @@
-import java.lang.StringBuilder;
-
 class Solution {
     public String solution(String cipher, int code) {
-        StringBuilder sb = new StringBuilder();
+        String answer = "";
         for (int i=1; i<=cipher.length()/code; i++) {
-            sb.append(cipher.charAt(i*code-1));
+            answer += cipher.charAt(i*code-1);
         }
-        return sb.toString();
+        return answer;
     }
 }
