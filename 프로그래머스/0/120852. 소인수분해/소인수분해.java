@@ -5,11 +5,15 @@ class Solution {
         
         LinkedHashSet<Integer> list = new LinkedHashSet<>();
         
-        for (int i = 2; i <= n; i++) {
-            while (i <= n && n % i == 0) {
+        int i = 2;
+        
+        while (i <= n) {
+            if (n % i == 0) {
                 list.add(i);
-                n /= i;
-            }
+                n /= i;    
+            } else {
+                i++;
+            } 
         }
         
         return list.stream().mapToInt(Integer::intValue).toArray();
