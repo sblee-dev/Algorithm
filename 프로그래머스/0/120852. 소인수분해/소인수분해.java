@@ -1,19 +1,17 @@
-import java.util.*;
+import java.util.LinkedHashSet;
 
 class Solution {
     public int[] solution(int n) {
         
-        List<Integer> list = new ArrayList<>();
+        LinkedHashSet<Integer> list = new LinkedHashSet<>();
         
         for (int i = 2; i <= n; i++) {
-            if (n % i == 0) {
-                while (n % i == 0) {
-                    n = n / i;    
-                }
+            while (i <= n && n % i == 0) {
                 list.add(i);
+                n /= i;
             }
         }
         
-        return list.stream().mapToInt(i -> i).toArray();
+        return list.stream().mapToInt(Integer::intValue).toArray();
     }
 }
