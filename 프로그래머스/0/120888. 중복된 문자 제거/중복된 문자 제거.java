@@ -1,8 +1,8 @@
 import java.util.*;
+import java.util.stream.Collectors;
 
 class Solution {
     public String solution(String my_string) {
-        LinkedHashSet<String> set = new LinkedHashSet<>(Arrays.asList(my_string.split("")));
-        return String.join("", set);
+        return Arrays.stream(my_string.split("")).distinct().collect(Collectors.joining());
     }
 }
