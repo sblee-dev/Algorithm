@@ -1,30 +1,21 @@
 class Solution {
-    public int solution(int[][] dots) {
+    int[][] dots;
     
-        int res = 0;
+    public int solution(int[][] dots) {
+        this.dots = dots;
         
-        if (
-            (
-                (dots[0][1] - dots[1][1]) * (dots[2][0] - dots[3][0])
-                == 
-                (dots[2][1] - dots[3][1]) * (dots[0][0] - dots[1][0])
-            )
-            ||
-            (
-                (dots[0][1] - dots[2][1]) * (dots[1][0] - dots[3][0])
-                == 
-                (dots[1][1] - dots[3][1]) * (dots[0][0] - dots[2][0])
-            )
-            ||
-            (
-                (dots[0][1] - dots[3][1]) * (dots[1][0] - dots[2][0])
-                == 
-                (dots[1][1] - dots[2][1]) * (dots[0][0] - dots[3][0]) 
-            )
-        ) {
-            res = 1;
-        }
-        return res;   
+        if (isParallel(0, 1, 2, 3)) return 1;
+        if (isParallel(0, 2, 1, 3)) return 1;
+        if (isParallel(0, 3, 1, 2)) return 1;
+    
+        return 0;
+    }
+    
+    boolean isParallel(int a, int b, int c, int d) {
+        int x = (dots[a][1] - dots[b][1]) * (dots[c][0] - dots[d][0]);
+        int y = (dots[c][1] - dots[d][1]) * (dots[a][0] - dots[b][0]);
+        
+        return x == y || x == -y;
     }
     
 }
